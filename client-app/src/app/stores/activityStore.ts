@@ -188,7 +188,8 @@ export default class ActivityStore {
             runInAction(() => {
                 this.activityRegistry.delete(id);
                 this.loading = false;
-            })
+            });
+            window.location.href = "/activities";
         } catch (error) {
             console.log(error);
             runInAction(() => {

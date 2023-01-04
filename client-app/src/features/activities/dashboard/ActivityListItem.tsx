@@ -62,13 +62,7 @@ export default function ActivityListItem({ activity }: Props) {
                     floated='right'
                     content='View'
                 />
-                 <Button 
-                    as={Link}
-                    to={`/activities/${activity.id}`}
-                    color='red'
-                    floated='right'
-                    content='Delete'
-                />
+                
             </Segment>
         </Segment.Group>
     )

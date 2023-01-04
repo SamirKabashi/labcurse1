@@ -24,7 +24,7 @@ interface Props {
 }
 
 export default observer(function ActivityDetailedHeader({ activity }: Props) {
-    const { activityStore: { updateAttendance, loading, cancelActivityToggle } } = useStore();
+    const { activityStore: { updateAttendance, loading, cancelActivityToggle, deleteActivity} } = useStore();
     return (
         <Segment.Group>
             <Segment basic attached='top' style={{ padding: '0' }}>
@@ -69,13 +69,22 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
                             floated='right'>
                             Manage Event
                         </Button>
+
+                        <Button
+                            color='red'
+                            floated='right'
+                            content='Delete'
+                            onClick={() => deleteActivity(`${activity.id}`)}
+                            loading={loading}>
+                        </Button>
+                        
                     </>
 
                 ) : activity.isGoing ? (
                     <Button loading={loading} onClick={updateAttendance}>Cancel attendance</Button>
                 ) : (
                     <Button disabled={activity.isCancelled}
-                        loading={loading} onClick={updateAttendance} color='teal'>
+                        loading={loading} onClick={updateAttendance} color='green'>
                             Join Activity
                     </Button>
                 )}
