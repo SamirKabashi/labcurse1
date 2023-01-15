@@ -2,7 +2,6 @@ using Application.Activities;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// add services to container
 
 builder.Services.AddControllers(opt =>
 {
@@ -15,7 +14,7 @@ builder.Services.AddControllers(opt =>
 });
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
-// Configure the http request pipeline
+
 
 var app = builder.Build();
 
